@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My Daily Expenses</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_expList">Expenses List</string>
+    <string name="lblExpName">Expense Name:</string>
+    <string name="lblPrice">Price(RM):</string>
+    <string name="hntExp">Lunch, Fuel</string>
+    <string name="hntPrice">5, 6.5</string>
+    <string name="lblSave">Save!</string>
+    <string name="title_activity_expenses_list">ExpensesListActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="lblDate">Date :</string>
+    <string name="lblTime">Time:</string>
+
+</resources>

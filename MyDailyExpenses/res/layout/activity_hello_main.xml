@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.BITP3453.myExpenses.ExpensesMainActivity" >
+
+    <TextView
+        android:id="@+id/lblExpName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="@string/lblExpName"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lblExpName"
+        android:layout_below="@+id/lblExpName"
+        android:layout_marginTop="39dp"
+        android:text="@string/lblPrice"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtPrice"
+        android:layout_marginTop="23dp"
+        android:layout_toLeftOf="@+id/edtExpName"
+        android:text="@string/lblDate"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="26dp"
+        android:layout_toLeftOf="@+id/edtExpName"
+        android:text="@string/lblTime"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/edtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignLeft="@+id/edtPrice"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtTime"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="44dp"
+        android:onClick="fnSave"
+        android:text="@string/lblSave" />
+
+    <EditText
+        android:id="@+id/edtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/edtDate"
+        android:ems="10"
+        android:inputType="time" />
+
+    <EditText
+        android:id="@+id/edtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/edtExpName"
+        android:ems="10"
+        android:hint="@string/hntPrice"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edtExpName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblExpName"
+        android:layout_alignBottom="@+id/lblExpName"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/lblExpName"
+        android:ems="10"
+        android:hint="@string/hntExp" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>
