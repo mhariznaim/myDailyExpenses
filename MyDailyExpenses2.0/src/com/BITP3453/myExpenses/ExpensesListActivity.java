@@ -3,34 +3,31 @@ package com.BITP3453.myExpenses;
 import android.support.v7.app.ActionBarActivity;
 import android.util.TypedValue;
 
-import com.example.helloworld.R;
-import com.example.helloworld.R.id;
-import com.example.helloworld.R.layout;
-import com.example.helloworld.R.menu;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import generic.ExpensesDB;
 
 public class ExpensesListActivity extends ActionBarActivity {
 
 	SQLiteDatabase dbMyExpenses;
-	 
+	 ExpensesDB dbExpense ;
 	String strPrice,strExpName,strExpenses ="" ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expenses_list);
+		dbExpense = new ExpensesDB(getApplicationContext());
 		
 		Runnable run = new Runnable() {	
 			@Override
 			public void run() {
 				
 				dbMyExpenses = openOrCreateDatabase("dbMyExpense", MODE_PRIVATE, null);
-				Cursor resultSet = dbMyExpenses.rawQuery("Select * from expenses;", null);
+				Cursor resultSet = dbExpense.getReadableDatabase().rawQuery("Select * from expenses;", null);
 				
 			    if(resultSet.moveToFirst())
 			    {
