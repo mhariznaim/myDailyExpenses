@@ -23,7 +23,7 @@ public class WebServiceCall {
 	public WebServiceCall()
 	{
 		jsonObj = null;
-		strUrl = "http://192.168.0.103/webServiceJSON/globalWebService.php"; 
+		strUrl = "http://192.168.135.50/webServiceJSON/globalWebService.php"; 
 	}
 	
 	public String fnGetURL()

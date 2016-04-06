@@ -1,6 +1,7 @@
 package com.BITP3453.myExpenses;
 
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 
 import android.database.Cursor;
@@ -11,7 +12,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import generic.ExpensesDB;
 
-public class ExpensesListActivity extends ActionBarActivity {
+public class ExpensesListActivity extends AppCompatActivity {
 
 	SQLiteDatabase dbMyExpenses;
 	 ExpensesDB dbExpense ;
@@ -57,6 +58,7 @@ public class ExpensesListActivity extends ActionBarActivity {
 		thr.start();
 	}
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

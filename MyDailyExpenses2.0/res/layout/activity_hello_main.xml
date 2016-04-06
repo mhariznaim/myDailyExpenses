@@ -17,7 +17,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtVwExpPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/lblExpName"
@@ -27,7 +27,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtVwDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtPrice"
@@ -37,10 +37,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtVwExpName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/txtVwDate"
         android:layout_marginTop="26dp"
         android:layout_toLeftOf="@+id/edtExpName"
         android:text="@string/lblTime"
@@ -50,7 +50,7 @@
         android:id="@+id/edtDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignBottom="@+id/txtVwDate"
         android:layout_alignLeft="@+id/edtPrice"
         android:ems="10"
         android:inputType="date" />
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/edtTime"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/txtVwExpName"
         android:layout_marginTop="44dp"
         android:onClick="fnSave"
         android:text="@string/lblSave" />
@@ -69,7 +69,7 @@
         android:id="@+id/edtTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignBottom="@+id/txtVwExpName"
         android:layout_alignLeft="@+id/edtDate"
         android:ems="10"
         android:inputType="time" />
@@ -78,7 +78,7 @@
         android:id="@+id/edtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignBottom="@+id/txtVwExpPrice"
         android:layout_alignLeft="@+id/edtExpName"
         android:ems="10"
         android:hint="@string/hntPrice"

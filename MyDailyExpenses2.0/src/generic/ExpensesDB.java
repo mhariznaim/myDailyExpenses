@@ -12,8 +12,8 @@ public class ExpensesDB extends SQLiteOpenHelper {
 
 	public static final String dbName = "dbMyExpense";
 	public static final String tblName = "expenses";
-	public static final String colExpName = "expenses_name";
-	public static final String colExpPrice = "expenses_price";
+	public static final String colExpName = "exp_name";
+	public static final String colExpPrice = "exp_price";
 	public static final String colExpDate = "exp_date";
 	public static final String colExpId = "exp_id";
 	
@@ -24,7 +24,7 @@ public class ExpensesDB extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
-		db.execSQL("CREATE TABLE IF NOT EXISTS expenses(exp_id VARCHAR,exp_name VARCHAR,exp_price VARCHAR, exp_date DATE );");
+		db.execSQL("CREATE TABLE IF NOT EXISTS "+tblName+" ("+ colExpId +" VARCHAR, "+ colExpName +" VARCHAR, "+ colExpPrice +" VARCHAR, "+ colExpDate +" DATE );");
 	}
 
 	@Override

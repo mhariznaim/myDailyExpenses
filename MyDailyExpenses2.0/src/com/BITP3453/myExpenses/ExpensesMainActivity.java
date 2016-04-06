@@ -2,6 +2,7 @@ package com.BITP3453.myExpenses;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
@@ -82,7 +84,7 @@ public class ExpensesMainActivity extends AppCompatActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.hello_main, menu);
+		getMenuInflater().inflate(R.menu.expense_menu, menu);
 		return true;
 	}
 
@@ -97,13 +99,19 @@ public class ExpensesMainActivity extends AppCompatActivity {
 			
 			return true;
 		}
+		else if (id == R.id.ListViewExp)
+		{
+			fnListViewExp(this.getCurrentFocus());
+		}
 		return super.onOptionsItemSelected(item);
 	}
 	
+	
+
 	public void fnSave(View vw)
 	{
 		Runnable run2 = new Runnable() {
-			
+			String strRespond = "";
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
@@ -112,18 +120,40 @@ public class ExpensesMainActivity extends AppCompatActivity {
 				String strPrice = edtExpPrice.getText().toString();
 				String strDate = edtDate.getText().toString();
 				
+				String strTime = edtTime.getText().toString();
+				
 				int intNewId = dbMyExpenses.fnTotalRow() + 1;
-				String strQry = "Insert into expenses values('"+ intNewId +"','"+strExpname+"','"+ strPrice +"', '"+ strDate +"');";
+				String strQry = "Insert into "+ExpensesDB.tblName+" values('"+ intNewId +"','"+strExpname+"','"+ strPrice +"', '"+ strDate +"');";
 				 
 				dbMyExpenses.fnExecuteSql(strQry, getApplicationContext()); 
+				
+				// send information to remote server
+				List<NameValuePair> params = new ArrayList<NameValuePair>();
+				params.add(new BasicNameValuePair("selectFn", "fnAddExpense"));
+				params.add(new BasicNameValuePair("varExpName", strExpname));
+				params.add(new BasicNameValuePair("varExpPrice", strPrice));
+				params.add(new BasicNameValuePair("varMobileDate", strDate));
+				params.add(new BasicNameValuePair("varMobileTime", strTime));
+				
+				try {
+					jsnObj = wsc.makeHttpRequest(wsc.fnGetURL(), "POST", params);
+					strRespond = jsnObj.getString("respond");
+					
+				} catch (JSONException e) {
+					// TODO: handle exception
+					Log.d("JSON call error", "Error!");
+				}
 				
 				runOnUiThread(new Runnable() {
 					
 					 
 					public void run() {
 						// TODO Auto-generated method stub
-						Toast showSuccess = Toast.makeText(getApplicationContext(), "Information Successfully Saved! ", Toast.LENGTH_SHORT);
+						Toast showSuccess = Toast.makeText(getApplicationContext(), "Information Successfully Saved! "
+								+ "Respond from server:" + strRespond, Toast.LENGTH_SHORT);
 						showSuccess.show();
+						
+						//Toast.makeText(getApplicationContext(), text, duration)
 					}
 				});
 				
@@ -141,6 +171,13 @@ public class ExpensesMainActivity extends AppCompatActivity {
 		startActivityForResult(intent, 0);
 		
 		
+	}
+	
+	private void fnListViewExp(View currentFocus) 
+	{
+		// TODO Auto-generated method stub
+		Intent intent = new Intent(this,ListViewExpensesActivity.class);
+		startActivityForResult(intent, 0);
 	}
 	
 	public void fnDisplayToastMSg(String strText)

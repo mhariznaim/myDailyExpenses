@@ -5,6 +5,7 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
@@ -15,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.BITP3453.myExpenses.ExpensesMainActivity"
+            android:name=".ExpensesMainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.BITP3453.myExpenses.ExpensesListActivity"
+            android:name=".ExpensesListActivity"
             android:label="@string/title_activity_expenses_list" >
+        </activity>
+        <activity
+            android:name=".ListViewExpensesActivity"
+            android:label="@string/title_activity_list_view_expenses" >
         </activity>
     </application>
 

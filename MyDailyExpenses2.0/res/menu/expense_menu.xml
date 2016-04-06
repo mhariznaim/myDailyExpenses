@@ -8,5 +8,6 @@
         android:orderInCategory="100"
         android:title="@string/action_expList"
         app:showAsAction="never"/>
+    <item android:id="@+id/ListViewExp" android:title="List View Expenses"></item>
 
 </menu>
